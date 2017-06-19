@@ -14,4 +14,5 @@ void keyPressed() {
 
 void mousePressed(){
   println(mouseX, mouseY);
+  rotateY(1);
 };

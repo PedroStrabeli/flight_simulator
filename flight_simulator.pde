@@ -21,7 +21,7 @@ void setup() {
 
   panel = new SpitfirePanel(width, height);
   scene = new Scene();
-  camera(0, -10, 100, 0, 0, 0, 0, 1, 0);
+  //camera(0, -10, 100, 0, 0, 0, 0, 1, 0);
   //pCamera = new PeasyCam(this, 0);
     //scene.update();
 
@@ -33,9 +33,7 @@ void setup() {
 }
 
 void draw() {
-  fill(255, 0, 0);
-  sphere(1);
-  noFill();
+  
   background(250);
   lights();
   scene.update();

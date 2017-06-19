@@ -54,6 +54,7 @@ class Scene {
 
   void drawHemisphere() {
     pushMatrix();
+    translate(width/2, height/2, 0);
     noFill(); 
     stroke(0);
     //textureMode(IMAGE);
