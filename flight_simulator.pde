@@ -1,8 +1,8 @@
-import peasy.*;
+//import peasy.*;
 import processing.opengl.*;
-import queasycam.*;
+//import queasycam.*;
 
-QueasyCam cam;
+//QueasyCam cam;
 
 //void setup(){
 //  size(400, 400, P3D);
@@ -12,7 +12,7 @@ SpitfirePanel panel;
 Scene scene;
 
 
-PeasyCam pCamera;
+//PeasyCam pCamera;
 
 void setup() {
   //  size(displayWidth, displayHeight, OPENGL);
