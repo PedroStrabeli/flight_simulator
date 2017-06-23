@@ -79,3 +79,7 @@ void draw() {
 //  vertex(-100, 100, 0, 0, img.height);
 //  endShape();
 //}
+
+void resetDraw(){
+  
+}

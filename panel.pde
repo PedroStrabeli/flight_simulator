@@ -2,22 +2,26 @@ class SpitfirePanel {
   int speed, altitude, attitude;
   int wid, hig;
   PImage img;
-  PShape panel;
+  Indicator airspeed;
+  
+  //PShape panel;
   SpitfirePanel(int wid, int hig) {
     this.wid = wid;
     this.hig = hig;
     this.img = loadImage("fullpanel.jpg");
-    this.panel = loadShape("black.svg");
+    
+
+    //this.panel = loadShape("black.svg");
   }
 
   void drawPanel() {
     //translate(wid*0.5-panel.width/2, hig-panel.height, 0);
-    panel.setTexture(img);
-    shape(panel, 0, 0, 3/5*wid, 2/5*hig);
-    /*
+    //panel.setTexture(img);
+    //shape(panel, 0, 0, 3/5*wid, 2/5*hig);
+/*
     fill(120);
-    stroke(250);
-    
+    //stroke(250);
+    noStroke();
     beginShape();
       texture(img);
       //vertex
@@ -30,11 +34,10 @@ class SpitfirePanel {
       vertex(wid*4/5, hig, -10, 0, 0);
       bezierVertex(wid*0.7, hig*0.5, -10, wid*0.3, hig*0.5, -10, wid*0.2, hig, -10);
     endShape();
-    fill(100);
-    //translate(wid*0.5, hig-(hig*0.075), 0);
-    translate(0, 0, -200);
+    translate(wid*0.5, hig-(hig*0.075), 0);*/
+    //translate(wid*0.5, hig-, -200);
     box(wid*0.23, hig*0.15, 10);
     noFill();
-    */
+    airspeed = new Indicator(wid/2, hig/2, 100);
   }
 };

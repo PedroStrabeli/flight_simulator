@@ -56,7 +56,7 @@ class Scene {
     pushMatrix();
     translate(width/2, height/2, 0);
     noFill(); 
-    stroke(0);
+    noStroke();
     //textureMode(IMAGE);
     float vMapping = 0.0;
     for (float phi = 0.0; phi < HALF_PI; phi += factor) {
