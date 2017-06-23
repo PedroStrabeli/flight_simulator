@@ -2,7 +2,7 @@ class SpitfirePanel {
   int speed, altitude, attitude;
   int wid, hig;
   PImage img;
-  Indicator airspeed;
+  AirSpeedIndicator airspeed;
   
   //PShape panel;
   SpitfirePanel(int wid, int hig) {
@@ -38,6 +38,6 @@ class SpitfirePanel {
     //translate(wid*0.5, hig-, -200);
     box(wid*0.23, hig*0.15, 10);
     noFill();
-    airspeed = new Indicator(wid/2, hig/2, 100);
+    //airspeed = new Indicator(wid/2, hig/2, 100);
   }
 };

@@ -21,6 +21,7 @@ class Scene {
 
   void update() {
     drawHemisphere();
+    drawGround();
     //drawHalfSphere();
   }
     /*scalex - scaling of sphere around x-axis
@@ -83,5 +84,9 @@ class Scene {
       endShape();
     }
     popMatrix();
+  }
+
+  void drawGround() {
+    rect(width/2, height/2, 100, 100);
   }
 }

@@ -16,7 +16,7 @@ Scene scene;
 
 void setup() {
   //  size(displayWidth, displayHeight, OPENGL);
-  fullScreen(OPENGL);
+  fullScreen(P3D);
   println("Iniciado com Sucesso!");
 
   panel = new SpitfirePanel(width, height);
