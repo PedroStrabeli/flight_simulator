@@ -1,35 +1,22 @@
-//import peasy.*;
 import processing.opengl.*;
-//import queasycam.*;
 
-//QueasyCam cam;
-
-//void setup(){
-//  size(400, 400, P3D);
-//}
-
+int MAXSPEED = 100;
+float FRICTION = -0.05;
 SpitfirePanel panel;
 Scene scene;
+float speed, attitude, climb;
+int throttle = 0;
 
-
-//PeasyCam pCamera;
 
 void setup() {
   //  size(displayWidth, displayHeight, OPENGL);
   fullScreen(P3D);
   println("Iniciado com Sucesso!");
-
-  panel = new SpitfirePanel(width, height);
   scene = new Scene();
-  //camera(0, -10, 100, 0, 0, 0, 0, 1, 0);
-  //pCamera = new PeasyCam(this, 0);
-    //scene.update();
-
-  //cam = new QueasyCam(this);
-  //cam.speed = 5;              // default is 3
-  //cam.sensitivity = 0.5;      // default is 2
-
-
+  panel = new SpitfirePanel(width, height);
+  speed = 0;
+  attitude = 0;
+  climb = 0;
 }
 
 void draw() {
@@ -37,49 +24,26 @@ void draw() {
   background(250);
   lights();
   scene.update();
-  panel.drawPanel();
+  panel.drawPanel(speed*10/MAXSPEED, 5, climb);
+  setAcceleration();
 }
-
-//class Scene{
-//  PImage scene;
-//  PShape globe;
-  
-//  Scene(){
-//    translate(width*.5, height, 0);
-//    scene = loadImage("assets/horizon2.jpg");
-//    //noStroke();
-//    globe = createShape(SPHERE, 5000);
-//    globe.setTexture(scene);
-//  }
-  
-//  void update() {
-//    shape(globe);
-//  }
-  
-//};
-
-//PImage img;
-
-//void setup() {
-//  size(640, 360, P3D);
-//  img = loadImage("assets/horizon.jpg");
-//  noStroke();
-//}
-
-//void draw() {
-//  background(0);
-//  translate(width / 2, height / 2);
-//  rotateY(map(mouseX, 0, width, -PI, PI));
-//  rotateZ(PI/6);
-//  beginShape();
-//  texture(img);
-//  vertex(-100, -100, 0, 0, 0);
-//  vertex(100, -100, 0, img.width, 0);
-//  vertex(100, 100, 0, img.width, img.height);
-//  vertex(-100, 100, 0, 0, img.height);
-//  endShape();
-//}
 
 void resetDraw(){
   
+}
+
+void setAcceleration(){
+  if (speed >= 0 && speed <= MAXSPEED) {
+    if (throttle == 1) {
+      speed += 0.15;
+    } else if (throttle == -1) {
+      speed -= 0.1;
+    }
+  }
+  if (speed > 0) {
+    speed += FRICTION;
+  }
+  if (speed < 0) {
+    speed = 0;
+  }
 }
