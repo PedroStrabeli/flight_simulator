@@ -24,7 +24,7 @@ void draw() {
   background(250);
   lights();
   scene.update();
-  panel.drawPanel(speed*10/MAXSPEED, 5, climb);
+  panel.drawPanel(speed*11/MAXSPEED, 5, climb);
   setAcceleration();
 }
 

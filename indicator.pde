@@ -6,9 +6,9 @@ class Indicators {
   ClimbIndicator climbInd;
   
   Indicators() {
-    airspeedInd = new AirSpeedIndicator(width*0.23/6, width*0.425, height-(height*0.085), 20.0);//wid/2, hig/2, 100);
-    attitudeInd = new AirSpeedIndicator(width*0.23/6, width*0.5, height-(height*0.085), 20.0);//wid/2, hig/2, 100);
-    climbInd = new ClimbIndicator(width*0.23/6, width*0.575, height-(height*0.085), 20.0);//wid/2, hig/2, 100);
+    airspeedInd = new AirSpeedIndicator(width*0.18/6, width*0.418, height-(height*0.0856), 20.0);//wid/2, hig/2, 100);
+    attitudeInd = new AirSpeedIndicator(width*0.20/6, width*0.4935, height-(height*0.085), 20.0);//wid/2, hig/2, 100);
+    climbInd = new ClimbIndicator(width*0.176/6, width*0.576, height-(height*0.079), 20.0);//wid/2, hig/2, 100);
   }
 }
 
@@ -87,13 +87,14 @@ class AirSpeedIndicator {
     pushMatrix();
     translate(0, 0, cz);
     // Draw the Indicator background
+    /*
     stroke(10);
     fill(80);
     //noStroke();
     strokeWeight(5);
     ellipse(cx, cy, indicatorDiameter, indicatorDiameter);
     ellipse(cx, cy, indicatorDiameter * 0.7, indicatorDiameter * 0.7);
-    
+    */
     // Angles for sin() and cos() start at 3 o'clock;
     // subtract HALF_PI to make them start at the top
     float h = map(indicatorArmHour, 0, 24, 0, TWO_PI * 2) - HALF_PI;
@@ -104,7 +105,7 @@ class AirSpeedIndicator {
     line(cx, cy, cx + cos(h) * armRadius, cy + sin(h) * armRadius);
     
     // Draw the ticks
-    strokeWeight(2);
+    /*strokeWeight(2);
     beginShape(POINTS);
     for (int a = 100; a <= 400; a+=15) {
       float angle = radians(a);
@@ -112,7 +113,7 @@ class AirSpeedIndicator {
       float y = cy + sin(angle) * armRadius;
       vertex(x, y, 0);
     }
-    endShape();
+    endShape();*/
     popMatrix();
   }
 }
