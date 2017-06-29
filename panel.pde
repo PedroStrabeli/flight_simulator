@@ -33,8 +33,8 @@ class SpitfirePanel {
     beginShape();
     texture(img);
     
-    vertex(-10, hig, -4, 0.03*img.width, img.height);
-    vertex(wid+10, hig, -4, img.width, img.height);
+    vertex(-10, hig+10, -4, 0.03*img.width, img.height);
+    vertex(wid+10, hig+10, -4, img.width, img.height);
     
     vertex(wid+10, -10, -4, img.width, 0);
     vertex(-10, -10, -4, 0.03*img.width, 0);

@@ -14,8 +14,8 @@ class Scene {
 
   Scene() {
     scene = loadImage("horizon2.jpg");
-    grass = loadImage("grass.jpg");
-    lane = loadImage("asphalt.jpg");
+    grass = loadImage("meadowcropped1.jpg");
+    lane = loadImage("lane.jpg");
     //size(1000, 1000, P3D);
     scene.resize(width, height);
 
@@ -73,20 +73,20 @@ class Scene {
     textureWrap(REPEAT);
     beginShape();
       texture(grass);
-      vertex(8*width, height, 0, grass.width*2500, 0);
+      vertex(8*width, height, 0, grass.width*2, 0);
       vertex(-8*width, height, 0, 0, 0);
-      vertex(-8*width, height, -1750000, 0, grass.height*2500);
-      vertex(8*width, height, -1750000, grass.width*2500, grass.height*2500);
+      vertex(-8*width, height, -1750000, 0, 1750000*500/grass.height);//make this 50 bigger when possible
+      vertex(8*width, height, -1750000, grass.width*2, 1750000*500/grass.height);//make this 50 bigger when possible
     endShape();
     fill(100);  
     //Pista de decolagem
     beginShape();
       texture(lane);
     //rect(width/2, height/2, 100, 100);
-      vertex(width, height, 0, lane.width*5, 0);
+      vertex(width, height, 0, lane.width, 0);
       vertex(0, height, 0, 0, 0);
       vertex(0, height, -1750000, 0, lane.height*1000);
-      vertex(width, height, -1750000, lane.width*500, lane.height*1000);
+      vertex(width, height, -1750000, lane.width, lane.height*1000);
     endShape();
   }
 }

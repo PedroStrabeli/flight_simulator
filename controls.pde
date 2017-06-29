@@ -13,11 +13,11 @@ void keyPressed() {
   } 
   //Changing attitude
   if (keyCode == DOWN) {
-    //rotatey += 0.1;
+    pulling = 1;
     println("Up we go bitches");
     //rotateY(rotatey);
   } else if (keyCode == UP) {
-    //rotatey -= 0.1;
+    pulling = -1;
     //rotateY(rotatey);
   }
 }

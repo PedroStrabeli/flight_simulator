@@ -20,8 +20,15 @@ class CameraMan {
     beginCamera();
     translate(0, climb, position);
     
-    //rotateX(position/1);
+    rotateX(position);
     endCamera();
     popMatrix();
+  }
+}
+
+class camCoord {
+  float eyeX, eyeY, eyeZ, centerX, centerY, centerZ;
+  camCoord(){
+  
   }
 }

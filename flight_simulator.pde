@@ -42,7 +42,7 @@ void draw() {
   centerZ-=speed;
   //setCamera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ);
 
-  cam.update(position, climb);
+  cam.update(position, altitude);
   
   panel.drawPanel(speed*11/MAXSPEED, 5, climb, position, climb);
 }
@@ -66,6 +66,23 @@ void setAcceleration(){
     speed = 0;
   }
   position += speed;
+}
+
+void setAttitude(){
+  if (climb <= MAXSPEED) {
+    if (pulling == 1) {
+      climb += 0.15;
+    } else if (pulling == -1) {
+      climb -= 0.15;
+    }
+  }
+  if (pulling > 0) {
+    climb += FRICTION;
+  }
+  if (pulling < 0) {
+    climb -= FRICTION;
+  }
+  altitude += climb;
 }
 
 void setCamera(float eyex, float eyey, float eyez, float centerx, float centery, float centerz) {
