@@ -35,13 +35,13 @@ class ClimbIndicator {
     pushMatrix();
     translate(0, 0, cz);
     // Draw the Indicator background
-    stroke(10);
+    /*stroke(10);
     fill(80);
     //noStroke();
     strokeWeight(5);
     ellipse(cx, cy, indicatorDiameter, indicatorDiameter);
     ellipse(cx, cy, indicatorDiameter * 0.7, indicatorDiameter * 0.7);
-    
+    */
     // Angles for sin() and cos() start at 3 o'clock;
     // subtract HALF_PI to make them start at the top
     float h = map(indicatorArmHour, 0, 24, 0, TWO_PI * 2) - HALF_PI;
@@ -52,7 +52,7 @@ class ClimbIndicator {
     line(cx, cy, cx + cos(h) * armRadius, cy + sin(h) * armRadius);
     
     // Draw the ticks
-    strokeWeight(2);
+    /*strokeWeight(2);
     beginShape(POINTS);
     for (int a = 30; a <= 330; a+=15) {
       float angle = radians(a);
@@ -60,7 +60,7 @@ class ClimbIndicator {
       float y = cy + sin(angle) * armRadius;
       vertex(x, y);
     }
-    endShape();
+    endShape();*/
     popMatrix();
   }
 }

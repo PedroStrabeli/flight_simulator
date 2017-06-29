@@ -17,13 +17,18 @@ class Scene {
     grass = loadImage("grass.jpg");
     lane = loadImage("asphalt.jpg");
     //size(1000, 1000, P3D);
+    scene.resize(width, height);
 
     //pCamera = new PeasyCam(this, 150);
   }
 
-  void update() {
-    drawHemisphere();
+  void update(float position, float altitude) {
+    background(scene);
+    pushMatrix();
+    translate(0, altitude, position);
+    //drawHemisphere();
     drawGround();
+    popMatrix();
     //drawHalfSphere();
   }
   
@@ -68,10 +73,10 @@ class Scene {
     textureWrap(REPEAT);
     beginShape();
       texture(grass);
-      vertex(8*width, height, 0, grass.width*25, 0);
+      vertex(8*width, height, 0, grass.width*2500, 0);
       vertex(-8*width, height, 0, 0, 0);
-      vertex(-8*width, height/2, -17500, 0, grass.height*25);
-      vertex(8*width, height/2, -17500, grass.width*25, grass.height*25);
+      vertex(-8*width, height, -1750000, 0, grass.height*2500);
+      vertex(8*width, height, -1750000, grass.width*2500, grass.height*2500);
     endShape();
     fill(100);  
     //Pista de decolagem
@@ -80,8 +85,8 @@ class Scene {
     //rect(width/2, height/2, 100, 100);
       vertex(width, height, 0, lane.width*5, 0);
       vertex(0, height, 0, 0, 0);
-      vertex(0, height/2, -17500, 0, lane.height*10);
-      vertex(width, height/2, -17500, lane.width*5, lane.height*10);
+      vertex(0, height, -1750000, 0, lane.height*1000);
+      vertex(width, height, -1750000, lane.width*500, lane.height*1000);
     endShape();
   }
 }

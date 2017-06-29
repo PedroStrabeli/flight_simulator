@@ -16,15 +16,16 @@ class SpitfirePanel {
     //this.panel = loadShape("black.svg");
   }
 
-  void drawPanel(float speed, float attitude, float climb) {
-    buildPanel();
+  void drawPanel(float speed, float attitude, float climb, float z, float rotatex) {
+    
+    buildPanel(z);
     indicators.airspeedInd.drawIndicator(speed-6);
     indicators.attitudeInd.drawIndicator(attitude);
-    indicators.climbInd.drawIndicator(indicatorArmHour/2);
+    indicators.climbInd.drawIndicator(climb-3);
     indicatorArmHour+=0.1;
   }
 
-  void buildPanel() {
+  void buildPanel(float z) {
     fill(10);
     pushMatrix();
     fill(50);
@@ -32,11 +33,11 @@ class SpitfirePanel {
     beginShape();
     texture(img);
     
-    vertex(0, hig, -4, 0.03*img.width, img.height);
-    vertex(wid, hig, -4, img.width, img.height);
+    vertex(-10, hig, -4, 0.03*img.width, img.height);
+    vertex(wid+10, hig, -4, img.width, img.height);
     
-    vertex(wid, -10, -4, img.width, 0);
-    vertex(0, -10, -4, 0.03*img.width, 0);
+    vertex(wid+10, -10, -4, img.width, 0);
+    vertex(-10, -10, -4, 0.03*img.width, 0);
     /*vertex(wid*1/5, hig, -4, 0, img.height);
     vertex(wid*4/5, hig, -4, img.width, img.height);
     

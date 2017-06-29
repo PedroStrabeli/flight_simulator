@@ -14,4 +14,14 @@ class CameraMan {
     //cam.speed = 5;              // default is 3
     //cam.sensitivity = 0.5;      // default is 2
   }
+  
+  void update(float position, float climb) {
+    pushMatrix();
+    beginCamera();
+    translate(0, climb, position);
+    
+    //rotateX(position/1);
+    endCamera();
+    popMatrix();
+  }
 }
