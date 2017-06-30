@@ -13,7 +13,7 @@ class Scene {
   PVector[] sphereVertexPoints;
 
   Scene() {
-    scene = loadImage("horizon2.jpg");
+    scene = loadImage("cloudyskies.jpg");
     grass = loadImage("meadowcropped1.jpg");
     lane = loadImage("lane.jpg");
     //size(1000, 1000, P3D);

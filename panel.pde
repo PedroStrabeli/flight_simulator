@@ -18,14 +18,14 @@ class SpitfirePanel {
 
   void drawPanel(float speed, float attitude, float climb, float z, float rotatex) {
     
-    buildPanel(z);
+    buildPanel();
     indicators.airspeedInd.drawIndicator(speed-6);
     indicators.attitudeInd.drawIndicator(attitude);
-    indicators.climbInd.drawIndicator(rotatex-3);
+    indicators.climbInd.drawIndicator(climb-3);
     indicatorArmHour+=0.1;
   }
 
-  void buildPanel(float z) {
+  void buildPanel() {
     fill(10);
     pushMatrix();
     fill(50);
@@ -48,13 +48,13 @@ class SpitfirePanel {
     //rect(width*0.5, height*0.6, 4/5*width, height*0.4);
     popMatrix();
     
-    pushMatrix();
-    translate(wid*0.5, hig-(hig*0.075), 0);
-    //translate(wid*0.5, hig-, -200);
-    //fill(50);
-    //box(wid*0.28, hig*0.15, 10);
-    popMatrix();
-    noFill();
+    //pushMatrix();
+    //translate(wid*0.5, hig-(hig*0.075), 0);
+    ////translate(wid*0.5, hig-, -200);
+    ////fill(50);
+    ////box(wid*0.28, hig*0.15, 10);
+    //popMatrix();
+    //noFill();
     
     /*
     //translate(wid*0.5-panel.width/2, hig-panel.height, 0);

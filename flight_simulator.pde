@@ -1,7 +1,6 @@
 import processing.opengl.*;
-import queasycam.*;
 
-int MAXSPEED = 100, MAXCLIMB = 70;
+int MAXSPEED = 100, MAXCLIMB = 70, MAXHEIGHT = 13000;
 float FRICTION = -0.05, GRAVITY = -0.1;
 SpitfirePanel panel;
 Scene scene;
@@ -44,12 +43,10 @@ void draw() {
   //setCamera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ);
 
   
-  panel.drawPanel(speed*11/MAXSPEED, 5, climb, position, altitude);
+  panel.drawPanel(speed*11/MAXSPEED, 5, climb*5/MAXCLIMB, position, altitude);
 }
 
-void resetDraw(){
-  
-}
+///////////////////PHYSICS
 
 void setAcceleration(){
   if (speed >= 0 && speed <= MAXSPEED) {
@@ -75,28 +72,39 @@ void setAttitude(){
   }
   
   //If it's too slow, can't go up
-  if (speed >= 0 && speed < 37 ) {
+  if (speed >= 0 && speed < 37 ) { //37 is the equivalent to 140 mph on the indicator.
     if (climb > 0 && altitude > 0) {
       climb += GRAVITY;
     }
- 
+  } 
+  
+  // is at top height, fall a little.
+  else if (altitude >= MAXHEIGHT) {
+    climb = -1;
+    altitude  = MAXHEIGHT;
+  }
   //can climb 
-  } else if (climb <= MAXCLIMB) {
+  else if (climb <= MAXCLIMB) {
     if (pulling == 1) {
-      climb += 0.15;
-    } else if (pulling == -1) {
-      climb -= 0.15;
+      climb += 0.35;
+      climb += GRAVITY;
+    } else if (pulling == -1 && altitude > 0) {
+      climb -= 0.35;
+      climb -= GRAVITY;
     }
   }
-  if (pulling > 0) {
-    climb += FRICTION;
+  
+  //gravity pulls
+  if (altitude > 0) {
+    altitude += GRAVITY;
   }
-  if (pulling < 0) {
-    climb -= FRICTION;
-  }
+ 
+  //increment to altitude
   altitude += climb;
 }
 
+
+// misc
 void setCamera(float eyex, float eyey, float eyez, float centerx, float centery, float centerz) {
   camera(eyex, eyey, eyez, centerx, centery, centerz, 0, 1, 0);
 }
