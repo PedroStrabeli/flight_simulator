@@ -3,6 +3,7 @@ import processing.opengl.*;
 class CameraMan {
   //QueasyCam cam;
   //PeasyCam pCamera;
+  float climber = 0;
   
   CameraMan() {
     camera();
@@ -18,9 +19,9 @@ class CameraMan {
   void update(float position, float climb) {
     pushMatrix();
     beginCamera();
-    translate(0, climb, position);
+    translate(0, 0, position);
     
-    rotateX(position);
+    rotateX(climb);
     endCamera();
     popMatrix();
   }

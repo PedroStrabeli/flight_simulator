@@ -1,8 +1,8 @@
 import processing.opengl.*;
 import queasycam.*;
 
-int MAXSPEED = 100;
-float FRICTION = -0.05;
+int MAXSPEED = 100, MAXCLIMB = 70;
+float FRICTION = -0.05, GRAVITY = -0.1;
 SpitfirePanel panel;
 Scene scene;
 CameraMan cam;
@@ -34,17 +34,17 @@ void setup() {
 }
 
 void draw() {
-  
+  cam.update(position, altitude);
   lights();
   scene.update(position, altitude);
   setAcceleration();
+  setAttitude();
   eyeZ-=speed;
   centerZ-=speed;
   //setCamera(eyeX, eyeY, eyeZ, centerX, centerY, centerZ);
 
-  cam.update(position, altitude);
   
-  panel.drawPanel(speed*11/MAXSPEED, 5, climb, position, climb);
+  panel.drawPanel(speed*11/MAXSPEED, 5, climb, position, altitude);
 }
 
 void resetDraw(){
@@ -69,7 +69,19 @@ void setAcceleration(){
 }
 
 void setAttitude(){
-  if (climb <= MAXSPEED) {
+  //Keeping plane out of ground 
+  if (altitude < 0) {
+    altitude = 0;
+  }
+  
+  //If it's too slow, can't go up
+  if (speed >= 0 && speed < 37 ) {
+    if (climb > 0 && altitude > 0) {
+      climb += GRAVITY;
+    }
+ 
+  //can climb 
+  } else if (climb <= MAXCLIMB) {
     if (pulling == 1) {
       climb += 0.15;
     } else if (pulling == -1) {

@@ -25,6 +25,7 @@ void keyPressed() {
 void keyReleased() {
   if (key == 'w' || key == 's') {
     throttle = 0;
+    println("a certa é ", speed);
   }
   
   if (keyCode == UP || keyCode == DOWN) {
@@ -33,6 +34,5 @@ void keyReleased() {
 }
 
 void mousePressed(){
-  println(climb);
   climb = 1000;
 };

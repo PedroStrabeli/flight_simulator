@@ -21,7 +21,7 @@ class SpitfirePanel {
     buildPanel(z);
     indicators.airspeedInd.drawIndicator(speed-6);
     indicators.attitudeInd.drawIndicator(attitude);
-    indicators.climbInd.drawIndicator(climb-3);
+    indicators.climbInd.drawIndicator(rotatex-3);
     indicatorArmHour+=0.1;
   }
 
