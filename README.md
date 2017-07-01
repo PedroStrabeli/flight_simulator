@@ -1,4 +1,9 @@
-# flight_simulator
+# Simple Spitfire Flight Simulator
+
+![alt text][logo]
+
+[logo]: https://github.com/PedroStrabeli/flight_simulator/raw/master/data/gamescreen.png "Ingame feelings"
+
 This is a graphical computing project with the aim of building a simple flight simulator in Processing language.
 
 # English
